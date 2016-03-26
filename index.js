@@ -28,7 +28,7 @@ app.get("/haunted_places", function(req, res){
 		if(err){
 			console.log(err);
 		} else {
-			res.render("haunted_places", {haunted_places: haunted_places});
+			res.render("index", {haunted_places: haunted_places});
 		}
 	});
 });
@@ -48,9 +48,20 @@ app.post("/haunted_places", function(req, res){
           console.log(err);
       } else {
       	//render haunted_places with new haunted place now on the page
-		res.redirect("haunted_places");
+		res.redirect("index");
       }
     });
+});
+
+// SHOW
+app.get("/haunted_places/:id", function(req, res){
+	HauntedPlace.findById(req.params.id, function (err, haunted_place) {
+		if(err){
+			console.log(err);
+		} else {
+			res.render("show", {haunted_place: haunted_place});
+		}
+	});
 });
 
 

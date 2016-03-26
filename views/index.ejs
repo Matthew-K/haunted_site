@@ -5,10 +5,13 @@
 <% haunted_places.forEach(function(spot){ %>
 	<h2><%= spot.name %></h2>
 	<img src="<%= spot.image %>">
+	<div>
+		<a class="btn btn-primary" href="/haunted_places/<%= spot._id %>">More Info</a>
+	</div>
 <% }) %>
 
 <div>
-	<a class="btn btn-primary" href="/haunted_places/new">Add Haunted Place</a>
+	<a class="btn btn-success" href="/haunted_places/new">Add Haunted Place</a>
 </div>
 
 <% include partials/footer.ejs %>

@@ -1,0 +1,12 @@
+<% include partials/header.ejs %>
+
+<h1>More Info on <%= haunted_place.name %></h1>
+
+<h2>Image for this place. Spooky!</h2>
+<div>
+	<img src="<%= haunted_place.image %>">
+</div>
+
+<a href="/haunted_places">Click here to go back to the haunted places.</a>
+
+<% include partials/footer.ejs %>
