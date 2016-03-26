@@ -1,0 +1,10 @@
+<% include partials/header.ejs %>
+
+<h1>Haunted Places</h1>
+
+<% haunted_places.forEach(function(spot){ %>
+	<h2><%= spot.name %></h2>
+	<img src="<%= spot.image %>">
+<% }) %>
+
+<% include partials/footer.ejs %>
