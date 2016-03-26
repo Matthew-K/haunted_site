@@ -1,10 +1,13 @@
 var express = require("express");
 var app = express();
+var bodyParser = require("body-parser");
+
+app.use(bodyParser.urlencoded({extended:true}));
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
-//home page
+// HOME PAGE
 app.get("/", function(req, res) {
   res.render("home");
 });
@@ -15,11 +18,27 @@ var haunted_places = [
 	{name: "Creepy Cemetary", image: "https://farm4.staticflickr.com/3327/3213607772_320d7f63dc.jpg"}
 ];
 
+// INDEX
 app.get("/haunted_places", function(req, res){
 	res.render("haunted_places", {haunted_places: haunted_places});
 });
 
+// NEW
+app.get("/haunted_places/new", function(req, res){
+	res.render("new");
+});
+
+// CREATE
+app.post("/haunted_places", function(req, res){
+	//add new haunted place to haunted_places array
+	haunted_places.push(req.body);
+
+	//render haunted_places with new haunted place now on the page
+	res.redirect("haunted_places");
+});
+
+
 app.listen(3000, function () {
-  console.log("Server Started");
+  console.log("Server started");
 });
 
