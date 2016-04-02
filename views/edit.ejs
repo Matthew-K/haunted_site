@@ -1,0 +1,12 @@
+<% include partials/header.ejs %>
+
+<form action="/haunted_places/<%= haunted_place._id %>" method="">
+	Name<br>
+	<input type="text" name="name" value="<%= haunted_place.name %>"><br>
+	Image<br>
+	<input type="text" name="image" value="<%= haunted_place.image %>"><br>
+	<input type="submit" value="Update">
+</form>
+
+
+<% include partials/footer.ejs %>

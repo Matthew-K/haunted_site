@@ -64,6 +64,17 @@ app.get("/haunted_places/:id", function(req, res){
 	});
 });
 
+// EDIT
+app.get("/haunted_places/:id/edit", function(req, res){
+	HauntedPlace.findById(req.params.id, function(err, haunted_place){
+		if(err){
+			console.log(err);
+		} else {
+			res.render("edit", {haunted_place: haunted_place});
+		}
+	});
+});
+
 
 app.listen(3000, function () {
   console.log("Server started");
