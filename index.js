@@ -1,12 +1,14 @@
-var express = require("express");
-var app = express();
-var bodyParser = require("body-parser");
-var mongoose = require("mongoose");
+var express 			= require("express"),
+	bodyParser 			= require("body-parser"),
+	mongoose 			= require("mongoose"),
+	methodOverride		= require("method-override"),
+	app 				= express();
 
 mongoose.connect("mongodb://localhost/haunted_website");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(methodOverride("_method"));
 
 
 var hauntedPlaceSchema = mongoose.Schema({
@@ -75,6 +77,18 @@ app.get("/haunted_places/:id/edit", function(req, res){
 	});
 });
 
+// UPDATE
+app.put("/haunted_places/:id", function(req, res){
+	HauntedPlace.findByIdAndUpdate(req.params.id, req.body.haunted_place, function(err, updated_haunted_place){
+		if(err){
+			console.log(err);
+			consolelog("errror");
+			res.redirect("/haunted_places");
+		} else {
+			res.redirect("/haunted_places/" + req.params.id);
+		}
+	});
+});
 
 app.listen(3000, function () {
   console.log("Server started");
