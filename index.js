@@ -1,12 +1,14 @@
-var express = require("express");
-var app = express();
-var bodyParser = require("body-parser");
-var mongoose = require("mongoose");
+var express 			= require("express"),
+	bodyParser 			= require("body-parser"),
+	mongoose 			= require("mongoose"),
+	methodOverride		= require("method-override"),
+	app 				= express();
 
 mongoose.connect("mongodb://localhost/haunted_website");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(methodOverride("_method"));
 
 
 var hauntedPlaceSchema = mongoose.Schema({
@@ -48,7 +50,7 @@ app.post("/haunted_places", function(req, res){
           console.log(err);
       } else {
       	//render haunted_places with new haunted place now on the page
-		res.redirect("index");
+		res.redirect("/haunted_places");
       }
     });
 });
@@ -63,6 +65,43 @@ app.get("/haunted_places/:id", function(req, res){
 		}
 	});
 });
+
+// EDIT
+app.get("/haunted_places/:id/edit", function(req, res){
+	HauntedPlace.findById(req.params.id, function(err, haunted_place){
+		if(err){
+			console.log(err);
+		} else {
+			res.render("edit", {haunted_place: haunted_place});
+		}
+	});
+});
+
+// UPDATE
+app.put("/haunted_places/:id", function(req, res){
+	HauntedPlace.findByIdAndUpdate(req.params.id, req.body.haunted_place, function(err, updated_haunted_place){
+		if(err){
+			console.log(err);
+			consolelog("errror");
+			res.redirect("/haunted_places");
+		} else {
+			res.redirect("/haunted_places/" + req.params.id);
+		}
+	});
+});
+
+// DELETE 
+app.delete("/haunted_places/:id", function(req, res){
+	HauntedPlace.findByIdAndRemove(req.params.id, function(err){
+		if(err){
+			console.log(err);
+			res.redirect("/haunted_places");
+		} else {
+			res.redirect("/haunted_places");
+		}
+	});
+});
+
 
 
 app.listen(3000, function () {

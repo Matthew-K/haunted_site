@@ -7,6 +7,14 @@
 	<img src="<%= haunted_place.image %>">
 </div>
 
+<div>
+	<a class="btn btn-warning" href="/haunted_places/<%= haunted_place._id %>/edit">Edit</a>
+</div>
+
+<form action="/haunted_places/<%= haunted_place._id %>?_method=DELETE" method="post">
+	<button class="btn btn-danger">Delete</button>
+</form>
+
 <a href="/haunted_places">Click here to go back to the haunted places.</a>
 
 <% include partials/footer.ejs %>
