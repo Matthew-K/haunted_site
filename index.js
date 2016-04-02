@@ -50,7 +50,7 @@ app.post("/haunted_places", function(req, res){
           console.log(err);
       } else {
       	//render haunted_places with new haunted place now on the page
-		res.redirect("index");
+		res.redirect("/haunted_places");
       }
     });
 });
