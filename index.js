@@ -90,6 +90,20 @@ app.put("/haunted_places/:id", function(req, res){
 	});
 });
 
+// DELETE 
+app.delete("/haunted_places/:id", function(req, res){
+	HauntedPlace.findByIdAndRemove(req.params.id, function(err){
+		if(err){
+			console.log(err);
+			res.redirect("/haunted_places");
+		} else {
+			res.redirect("/haunted_places");
+		}
+	});
+});
+
+
+
 app.listen(3000, function () {
   console.log("Server started");
 });
