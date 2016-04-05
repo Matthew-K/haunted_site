@@ -13,7 +13,8 @@ app.use(methodOverride("_method"));
 
 var hauntedPlaceSchema = mongoose.Schema({
     name: String,
-    image: String
+    image: String,
+    description: String
 });
 
 var HauntedPlace = mongoose.model('haunted_place', hauntedPlaceSchema);
@@ -44,7 +45,7 @@ app.get("/haunted_places/new", function(req, res){
 app.post("/haunted_places", function(req, res){
 	//add new haunted place to haunted_places collection
 	HauntedPlace.create(
-     {name: req.body.name, image: req.body.image},
+     {name: req.body.name, image: req.body.image, description: req.body.description},
      function(err, haunted_place){
       if(err){
           console.log(err);

@@ -34,3 +34,10 @@
 	padding: 10px;
 }
 
+textarea { 
+	resize:vertical; 
+}
+
+.form{
+	width:33%;
+}
