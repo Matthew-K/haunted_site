@@ -2,22 +2,14 @@ var express 			= require("express"),
 	bodyParser 			= require("body-parser"),
 	mongoose 			= require("mongoose"),
 	methodOverride		= require("method-override"),
-	app 				= express();
+	app 				= express(),
+	HauntedPlace 		= require("./models/haunted_place");
 
 mongoose.connect("mongodb://localhost/haunted_website");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
-
-
-var hauntedPlaceSchema = mongoose.Schema({
-    name: String,
-    image: String,
-    description: String
-});
-
-var HauntedPlace = mongoose.model('haunted_place', hauntedPlaceSchema);
 
 
 // HOME PAGE
