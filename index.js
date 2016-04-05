@@ -3,8 +3,10 @@ var express 			= require("express"),
 	mongoose 			= require("mongoose"),
 	methodOverride		= require("method-override"),
 	app 				= express(),
-	HauntedPlace 		= require("./models/haunted_place");
+	HauntedPlace 		= require("./models/haunted_place"),
+	seedDB				= require("./seeds");
 
+seedDB();
 mongoose.connect("mongodb://localhost/haunted_website");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
