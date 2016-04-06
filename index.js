@@ -53,7 +53,7 @@ app.post("/haunted_places", function(req, res){
 
 // SHOW
 app.get("/haunted_places/:id", function(req, res){
-	HauntedPlace.findById(req.params.id, function (err, haunted_place) {
+	HauntedPlace.findById(req.params.id).populate("comments").exec(function (err, haunted_place) {
 		if(err){
 			console.log(err);
 		} else {
