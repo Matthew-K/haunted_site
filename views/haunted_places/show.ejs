@@ -1,4 +1,4 @@
-<% include partials/header.ejs %>
+<% include ../partials/header.ejs %>
 
 <h1>More Info on <%= haunted_place.name %></h1>
 
@@ -23,10 +23,13 @@
 	</br>
 <% }); %>
 
+
+<a class="btn btn-success" href="/haunted_places/<%= haunted_place._id %>/comments/new">Add New Comment</a>
+
 <form action="/haunted_places/<%= haunted_place._id %>?_method=DELETE" method="post">
 	<button class="btn btn-danger">Delete</button>
 </form>
 
 <a href="/haunted_places">Click here to go back to the haunted places.</a>
 
-<% include partials/footer.ejs %>
+<% include ../partials/footer.ejs %>

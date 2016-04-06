@@ -31,24 +31,29 @@ function seedDB(){
         if(err){
             console.log(err);
         }
-         //add some haunted places
         data.forEach(function(seed){
             HauntedPlace.create(seed, function(err, haunted_place){
                 if(err){
                     console.log(err);
                 } else{
-                    Comment.create(
-                        {
-                            text: "This is a spooky place.",
-                            author: "Albert"
-                        }, function(err, comment){
-                            if(err){
-                                console.log(err);
-                            } else {
-                                haunted_place.comments.push(comment);
-                                haunted_place.save();
-                            }
-                        });
+                    Comment.remove({}, function(err){
+                        if(err){
+                            console.log(err);
+                        } else {
+                            Comment.create(
+                                {
+                                    text: "This is a spooky place.",
+                                    author: "Albert"
+                                }, function(err, comment){
+                                    if(err){
+                                        console.log(err);
+                                    } else {
+                                        haunted_place.comments.push(comment);
+                                        haunted_place.save();
+                                    }
+                                });
+                        }   
+                    });
                 }
             });
         });

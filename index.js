@@ -26,14 +26,14 @@ app.get("/haunted_places", function(req, res){
 		if(err){
 			console.log(err);
 		} else {
-			res.render("index", {haunted_places: haunted_places});
+			res.render("haunted_places/index", {haunted_places: haunted_places});
 		}
 	});
 });
 
 // NEW
 app.get("/haunted_places/new", function(req, res){
-	res.render("new");
+	res.render("haunted_places/new");
 });
 
 // CREATE
@@ -57,7 +57,7 @@ app.get("/haunted_places/:id", function(req, res){
 		if(err){
 			console.log(err);
 		} else {
-			res.render("show", {haunted_place: haunted_place});
+			res.render("haunted_places/show", {haunted_place: haunted_place});
 		}
 	});
 });
@@ -68,7 +68,7 @@ app.get("/haunted_places/:id/edit", function(req, res){
 		if(err){
 			console.log(err);
 		} else {
-			res.render("edit", {haunted_place: haunted_place});
+			res.render("haunted_places/edit", {haunted_place: haunted_place});
 		}
 	});
 });
@@ -97,6 +97,41 @@ app.delete("/haunted_places/:id", function(req, res){
 		}
 	});
 });
+
+// ======================
+//     COMMENT ROUTES    
+// ======================
+
+// NEW
+app.get("/haunted_places/:id/comments/new", function(req, res){
+	HauntedPlace.findById(req.params.id, function(err, haunted_place){
+		if(err){
+			console.log(err);
+		} else{
+			res.render("comments/new", {haunted_place: haunted_place});
+		}
+	});
+});
+
+// CREATE
+app.post("/haunted_places/:id/comments", function(req, res){
+	HauntedPlace.findById(req.params.id, function(err, haunted_place){
+		if(err){
+			console.log(err);
+			res.redirect("/haunted_places");
+		} else {
+			Comment.create(req.body.comment, function(err, comment){
+				if(err){
+					console.log(err);
+				} else {
+					haunted_place.comments.push(comment);
+					haunted_place.save();
+					res.redirect("/haunted_places/" + haunted_place._id);
+				}
+			});
+		}
+	});
+});	
 
 
 
