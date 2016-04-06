@@ -1,5 +1,6 @@
 var mongoose = require("mongoose");
 var HauntedPlace = require("./models/haunted_place");
+var Comment	= require("./models/comment");
 
 var data = [
 	{
@@ -35,6 +36,19 @@ function seedDB(){
             HauntedPlace.create(seed, function(err, haunted_place){
                 if(err){
                     console.log(err);
+                } else{
+                    Comment.create(
+                        {
+                            text: "This is a spooky place.",
+                            author: "Albert"
+                        }, function(err, comment){
+                            if(err){
+                                console.log(err);
+                            } else {
+                                haunted_place.comments.push(comment);
+                                haunted_place.save();
+                            }
+                        });
                 }
             });
         });

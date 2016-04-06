@@ -4,7 +4,8 @@ var express 			= require("express"),
 	methodOverride		= require("method-override"),
 	app 				= express(),
 	HauntedPlace 		= require("./models/haunted_place"),
-	seedDB				= require("./seeds");
+	seedDB				= require("./seeds"),
+	Comment				= require("./models/comment");
 
 seedDB();
 mongoose.connect("mongodb://localhost/haunted_website");
