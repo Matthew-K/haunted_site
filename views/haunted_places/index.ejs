@@ -14,7 +14,7 @@
 					<img src="<%= spot.image %>" alt="<%= spot.name %>">
 				</div>
 				<div class="description">
-					<%= spot.description %>			
+					<div class="descriptionText"><%= spot.description%></div>		
 					<div>
 						<a class="btn btn-primary" href="/haunted_places/<%= spot._id %>">More Info</a>  
 					</div>
@@ -28,5 +28,13 @@
 	</div>
 </div>
 
+<!-- Truncates each descriptions to be no more than 135 characters and follows it with an ellipsis -->
+<script>
+    $(function(){
+        $('.descriptionText').succinct({
+            size: 135
+        });
+    });
+</script>
 
 <% include ../partials/footer.ejs %>

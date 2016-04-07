@@ -34,6 +34,11 @@
 	padding: 10px;
 }
 
+.descriptionText{
+	overflow: hidden;
+	height: 60px;
+}
+
 textarea { 
 	resize:vertical; 
 }
