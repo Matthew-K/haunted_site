@@ -28,6 +28,19 @@ app.use("/haunted_places/:id/comments", commentRoutes);
 //Seed the database
 seedDB();
 
+// Passport config
+app.use(require("express-session")({
+	secret: "Don't tell anyone this a secret. Blah blah blah",
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 app.listen(3000, function () {
   console.log("Server started");
 });
