@@ -12,6 +12,6 @@ var hauntedPlaceSchema = mongoose.Schema({
     ]
 });
 
-var HauntedPlace = mongoose.model('haunted_place', hauntedPlaceSchema);
+var HauntedPlace = mongoose.model("haunted_place", hauntedPlaceSchema);
 
 module.exports = HauntedPlace;

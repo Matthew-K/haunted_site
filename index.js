@@ -2,10 +2,14 @@ var express 			= require("express"),
 	bodyParser 			= require("body-parser"),
 	mongoose 			= require("mongoose"),
 	methodOverride		= require("method-override"),
+	passport			= require("passport"),
+	LocalStrategy		= require("passport-local"),
+
 	app 				= express(),
 	seedDB				= require("./seeds"),
 	HauntedPlace 		= require("./models/haunted_place"),
-	Comment				= require("./models/comment");
+	Comment				= require("./models/comment"),
+	User				= require("./models/user");
 
 var commentRoutes 	= require("./routes/comments"),
 	hauntedRoutes 	= require("./routes/haunted_places"),
