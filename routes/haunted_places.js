@@ -1,6 +1,7 @@
 var express 		= require("express"),
 	router 			= express.Router(),
-	HauntedPlace 	= require("../models/haunted_place");
+	HauntedPlace 	= require("../models/haunted_place"),
+	middleware 		= require("../middleware");
 
 // INDEX - list all the haunted places with a description and option to show more info
 router.get("/", function(req, res){
@@ -14,12 +15,12 @@ router.get("/", function(req, res){
 });
 
 // NEW - show form to create a new haunted place
-router.get("/new", function(req, res){
+router.get("/new", middleware.isLoggedIn, function(req, res){
 	res.render("haunted_places/new");
 });
 
 // CREATE - create a new haunted place
-router.post("/", function(req, res){
+router.post("/", middleware.isLoggedIn, function(req, res){
 	//add new haunted place to haunted_places collection
 	HauntedPlace.create(
      {name: req.body.name, image: req.body.image, description: req.body.description},

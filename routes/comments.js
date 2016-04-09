@@ -1,10 +1,11 @@
 var express 		= require("express"),
 	router 			= express.Router({mergeParams: true}),
 	HauntedPlace 	= require("../models/haunted_place"),
-	Comment			= require("../models/comment");
+	Comment			= require("../models/comment"),
+	middleware 		= require("../middleware");
 
 // NEW - show new comment form
-router.get("/new", function(req, res){
+router.get("/new", middleware.isLoggedIn, function(req, res){
 	HauntedPlace.findById(req.params.id, function(err, haunted_place){
 		if(err){
 			console.log(err);
@@ -15,7 +16,7 @@ router.get("/new", function(req, res){
 });
 
 // CREATE - create a new comment
-router.post("/", function(req, res){
+router.post("/", middleware.isLoggedIn, function(req, res){
 	HauntedPlace.findById(req.params.id, function(err, haunted_place){
 		if(err){
 			console.log(err);
