@@ -27,4 +27,22 @@ router.post("/register", function(req, res){
 	});
 });
 
+// Show login form
+router.get("/login", function(req, res){
+   res.render("login"); 
+});
+
+// Log in a user
+router.post("/login", passport.authenticate("local", {
+		successRedirect: "/haunted_places",
+		failureRedirect: "/login"
+	}), function(req, res){
+});
+
+// Log out user
+router.get("/logout", function(req, res){
+	req.logout();
+	res.redirect("/haunted_places");
+});
+
 module.exports = router;
