@@ -1,4 +1,4 @@
-<% include partials/header.ejs %>
+<% include ../partials/header.ejs %>
 
 <h1>More Info on <%= haunted_place.name %></h1>
 
@@ -6,10 +6,25 @@
 <div>
 	<img src="<%= haunted_place.image %>">
 </div>
-
+<div>
+	<p><%= haunted_place.description %></p>
+</div>
 <div>
 	<a class="btn btn-warning" href="/haunted_places/<%= haunted_place._id %>/edit">Edit</a>
 </div>
+<h3>Comments</h3>
+<% haunted_place.comments.forEach(function(comment){ %>
+	<div>
+		<%= comment.text %>
+	</div>
+	<p>
+		<b>By <%= comment.author %></b>
+	</p>
+	</br>
+<% }); %>
+
+
+<a class="btn btn-success" href="/haunted_places/<%= haunted_place._id %>/comments/new">Add New Comment</a>
 
 <form action="/haunted_places/<%= haunted_place._id %>?_method=DELETE" method="post">
 	<button class="btn btn-danger">Delete</button>
@@ -17,4 +32,4 @@
 
 <a href="/haunted_places">Click here to go back to the haunted places.</a>
 
-<% include partials/footer.ejs %>
+<% include ../partials/footer.ejs %>

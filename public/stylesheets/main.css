@@ -1,0 +1,49 @@
+* {
+	 box-sizing: border-box; 
+}
+
+.hauntedPlaceEntry{
+	display: block;
+    margin: 0 auto;
+	margin-bottom: 25px;
+	width: 375px;
+}
+
+.title{
+	background-color: #2D2D2D;
+	color: white;
+	text-align: center;
+	padding: 10px;
+	font-size: 1.5em;
+}
+
+.galleryPic{
+	background-color: #DEDED2; 
+	height: 225px;
+}
+
+.galleryPic img{
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.description{
+	background-color: gray;
+	padding: 10px;
+}
+
+.descriptionText{
+	overflow: hidden;
+	height: 60px;
+}
+
+textarea { 
+	resize:vertical; 
+}
+
+.form{
+	width:33%;
+}
+

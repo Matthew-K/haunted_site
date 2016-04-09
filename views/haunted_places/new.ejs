@@ -1,0 +1,24 @@
+<% include ../partials/header.ejs %>
+
+<div class="container form">
+	<h1>Add New Haunted Place</h1>
+	<form action="/haunted_places" method="post">
+		<div class="form-group">
+			<label>Name</label>
+		    <input type="text" name="name" class="form-control">
+		</div>
+		<div class="form-group">
+			<label>Image</label>
+		    <input type="text" name="image" class="form-control">
+		</div>
+		<div class="form-group">
+			<label>Description</label>
+			<textarea class="form-control" rows="5" name="description"></textarea>
+		</div>
+		<button type="submit" class="btn btn-default">Submit</button>
+	</form>
+</div>
+
+
+
+<% include ../partials/footer.ejs %>
