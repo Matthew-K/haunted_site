@@ -28,9 +28,13 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="collapseNavbar">
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="/login">Log In</a></li>
-	        <li><a href="/register">Sign Up</a></li>
-	        <li><a href="/logout">Log Out</a></li>
+	      	<% if(!currentUser){ %>
+		        <li><a href="/login">Log In</a></li>
+		        <li><a href="/register">Sign Up</a></li>
+		    <% } else{ %>
+		    	<li><a href="#"><%= currentUser.username %> <span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
+		        <li><a href="/logout">Log Out</a></li>
+		    <% } %>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
