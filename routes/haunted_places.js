@@ -55,18 +55,14 @@ router.get("/:id", function(req, res){
 });
 
 // EDIT - show edit form for a haunted place
-router.get("/:id/edit", function(req, res){
+router.get("/:id/edit", middleware.checkHauntedPlaceOwner, function(req, res){
 	HauntedPlace.findById(req.params.id, function(err, haunted_place){
-		if(err){
-			console.log(err);
-		} else {
-			res.render("haunted_places/edit", {haunted_place: haunted_place});
-		}
+		res.render("haunted_places/edit", {haunted_place: haunted_place});
 	});
 });
 
 // UPDATE - update a haunted place
-router.put("/:id", function(req, res){
+router.put("/:id", middleware.checkHauntedPlaceOwner, function(req, res){
 	HauntedPlace.findByIdAndUpdate(req.params.id, req.body.haunted_place, function(err, updated_haunted_place){
 		if(err){
 			console.log(err);
@@ -79,7 +75,7 @@ router.put("/:id", function(req, res){
 });
 
 // DELETE 
-router.delete("/:id", function(req, res){
+router.delete("/:id", middleware.checkHauntedPlaceOwner, function(req, res){
 	HauntedPlace.findByIdAndRemove(req.params.id, function(err){
 		if(err){
 			console.log(err);
