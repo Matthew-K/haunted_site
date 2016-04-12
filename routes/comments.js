@@ -26,6 +26,10 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 				if(err){
 					console.log(err);
 				} else {
+					// username and id to comment
+					comment.author.id = req.user._id;
+					comment.author.username = req.user.username;
+					comment.save();
 					haunted_place.comments.push(comment);
 					haunted_place.save();
 					res.redirect("/haunted_places/" + haunted_place._id);
