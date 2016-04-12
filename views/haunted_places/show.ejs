@@ -29,6 +29,9 @@
 	<p>
 		<b>By: <%= comment.author.username %></b>
 	</p>
+	<div>
+		<a class="btn btn-warning" href="/haunted_places/<%= haunted_place._id %>/comments/<%= comment._id %>/edit">Edit</a>
+	</div>
 	</br>
 <% }); %>
 

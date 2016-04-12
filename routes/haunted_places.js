@@ -66,7 +66,6 @@ router.put("/:id", middleware.checkHauntedPlaceOwner, function(req, res){
 	HauntedPlace.findByIdAndUpdate(req.params.id, req.body.haunted_place, function(err, updated_haunted_place){
 		if(err){
 			console.log(err);
-			consolelog("errror");
 			res.redirect("/haunted_places");
 		} else {
 			res.redirect("/haunted_places/" + req.params.id);

@@ -39,4 +39,31 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 	});
 });	
 
+// EDIT - show edit form for a comment
+router.get("/:comment_id/edit", function(req, res){
+	Comment.findById(req.params.comment_id, function(err, foundComment){
+		if(err){
+			console.log(err);
+			res.redirect("back");
+		} else {
+			res.render("comments/edit", {haunted_place_id: req.params.id, comment: foundComment});
+		}
+	});
+});
+
+// UPDATE - update a comment
+router.put("/:comment_id", function(req, res){
+	Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updated_comment){
+		if(err){
+			console.log(err);
+			res.redirect("back");
+		} else {
+			res.redirect("/haunted_places/" + req.params.id);
+		}
+	});
+});
+
+
+
+
 module.exports = router;
