@@ -21,9 +21,18 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 
 // CREATE - create a new haunted place
 router.post("/", middleware.isLoggedIn, function(req, res){
+	var author = {
+		id: req.user._id,
+		username: req.user.username
+	};
 	//add new haunted place to haunted_places collection
 	HauntedPlace.create(
-     {name: req.body.name, image: req.body.image, description: req.body.description},
+     {
+     	name: req.body.name, 
+     	image: req.body.image, 
+     	description: req.body.description, 
+     	author: author
+     },
      function(err, haunted_place){
       if(err){
           console.log(err);

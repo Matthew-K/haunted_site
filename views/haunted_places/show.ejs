@@ -9,6 +9,8 @@
 <div>
 	<p><%= haunted_place.description %></p>
 </div>
+<p><b>Submitted By: <%= haunted_place.author.username %></b></p>
+</br>
 <div>
 	<a class="btn btn-warning" href="/haunted_places/<%= haunted_place._id %>/edit">Edit</a>
 </div>
