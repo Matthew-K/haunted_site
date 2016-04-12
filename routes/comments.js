@@ -63,6 +63,18 @@ router.put("/:comment_id", function(req, res){
 	});
 });
 
+// DELETE - delete a comment
+router.delete("/:comment_id", function(req, res){
+	Comment.findByIdAndRemove(req.params.comment_id, function(err){
+		if(err){
+			console.log(err);
+			res.redirect("/haunted_places" + req.params.id);
+		} else {
+			res.redirect("/haunted_places/" + req.params.id);
+		}
+	});
+});
+
 
 
 
