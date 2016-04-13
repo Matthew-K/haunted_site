@@ -80,6 +80,7 @@ router.delete("/:id", middleware.checkHauntedPlaceOwner, function(req, res){
 			console.log(err);
 			res.redirect("/haunted_places");
 		} else {
+			req.flash("success", "Haunted Place Deleted");
 			res.redirect("/haunted_places");
 		}
 	});

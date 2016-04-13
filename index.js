@@ -4,6 +4,7 @@ var express 			= require("express"),
 	methodOverride		= require("method-override"),
 	passport			= require("passport"),
 	LocalStrategy		= require("passport-local"),
+	flash				= require("connect-flash"),
 	app 				= express(),
 	seedDB				= require("./seeds"),
 	HauntedPlace 		= require("./models/haunted_place"),
@@ -19,6 +20,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
+app.use(flash());
 
 // Passport config
 app.use(require("express-session")({
@@ -35,6 +37,8 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use(function(req, res, next){
 	res.locals.currentUser = req.user;
+	res.locals.error = req.flash("error");
+	res.locals.success = req.flash("success");
 	next();
 });
 

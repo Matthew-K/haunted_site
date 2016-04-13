@@ -19,6 +19,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 router.post("/", middleware.isLoggedIn, function(req, res){
 	HauntedPlace.findById(req.params.id, function(err, haunted_place){
 		if(err){
+			req.flash("error", "Woops. Something went wrong.");
 			console.log(err);
 			res.redirect("/haunted_places");
 		} else {
@@ -32,6 +33,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 					comment.save();
 					haunted_place.comments.push(comment);
 					haunted_place.save();
+					req.flash("success", "Comment added");
 					res.redirect("/haunted_places/" + haunted_place._id);
 				}
 			});
@@ -70,6 +72,7 @@ router.delete("/:comment_id", middleware.checkCommentOwner, function(req, res){
 			console.log(err);
 			res.redirect("/haunted_places" + req.params.id);
 		} else {
+			req.flash("success", "Comment Deleted");
 			res.redirect("/haunted_places/" + req.params.id);
 		}
 	});
