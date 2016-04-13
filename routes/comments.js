@@ -40,7 +40,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 });	
 
 // EDIT - show edit form for a comment
-router.get("/:comment_id/edit", function(req, res){
+router.get("/:comment_id/edit", middleware.checkCommentOwner, function(req, res){
 	Comment.findById(req.params.comment_id, function(err, foundComment){
 		if(err){
 			console.log(err);
@@ -52,7 +52,7 @@ router.get("/:comment_id/edit", function(req, res){
 });
 
 // UPDATE - update a comment
-router.put("/:comment_id", function(req, res){
+router.put("/:comment_id", middleware.checkCommentOwner, function(req, res){
 	Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updated_comment){
 		if(err){
 			console.log(err);
@@ -64,7 +64,7 @@ router.put("/:comment_id", function(req, res){
 });
 
 // DELETE - delete a comment
-router.delete("/:comment_id", function(req, res){
+router.delete("/:comment_id", middleware.checkCommentOwner, function(req, res){
 	Comment.findByIdAndRemove(req.params.comment_id, function(err){
 		if(err){
 			console.log(err);

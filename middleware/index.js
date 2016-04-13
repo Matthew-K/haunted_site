@@ -33,4 +33,28 @@ middleware.checkHauntedPlaceOwner = function(req, res, next){
 	}
 };
 
+middleware.checkCommentOwner = function(req, res, next){
+	//check if user is logged in
+	if(req.isAuthenticated()){
+		//check if user submitted comment
+		Comment.findById(req.params.comment_id, function(err, comment){
+			if(err){
+				console.log(err);
+				res.redirect("back");
+			} else {
+				if(comment.author.id.equals(req.user._id)){
+					next();
+				} else {
+					console.log("Permission Denied");
+					res.redirect("back");
+				}
+			}
+		});
+	} else{
+		console.log("You Must Login First");
+		res.redirect("back");
+	}
+};
+
+
 module.exports = middleware;

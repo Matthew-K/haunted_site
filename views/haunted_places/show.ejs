@@ -29,12 +29,14 @@
 	<p>
 		<b>By: <%= comment.author.username %></b>
 	</p>
-	<div>
-		<a class="btn btn-warning" href="/haunted_places/<%= haunted_place._id %>/comments/<%= comment._id %>/edit">Edit</a>
-	</div>
-	<form action="/haunted_places/<%= haunted_place._id %>/comments/<%= comment._id %>?_method=DELETE" method="post">
-		<button class="btn btn-danger">Delete</button>
-	</form>
+	<% if (currentUser && comment.author.id.equals(currentUser._id)){ %>
+		<div>
+			<a class="btn btn-warning" href="/haunted_places/<%= haunted_place._id %>/comments/<%= comment._id %>/edit">Edit</a>
+		</div>
+		<form action="/haunted_places/<%= haunted_place._id %>/comments/<%= comment._id %>?_method=DELETE" method="post">
+			<button class="btn btn-danger">Delete</button>
+		</form>
+	<% } %>
 	</br>
 <% }); %>
 
