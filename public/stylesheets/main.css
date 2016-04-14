@@ -50,7 +50,7 @@ textarea {
 	max-width: 350px;
 }
 
-.comment{
+.commentForm{
 	max-width: 500px;
 }
 
@@ -62,9 +62,38 @@ textarea {
 	max-width: 350px;
 }
 
+.showPage{
+	max-width: 768px;
+}
+
+.container img{
+	max-width: 95%;
+	margin-bottom: 15px;
+}
+
+a.btn.btn-warning{
+	display: inline-block;
+}
+
+.inlineBlock{
+	display: inline-block;
+}
+
+#showPageBottomButtons{
+	margin: 15px 0;
+}
+
+.comment{
+	margin-bottom:15px;
+	background-color: #DEDED2;
+}
+
+.commentButtons{
+	margin:7px 0;
+}
+
 @media only screen and (max-width: 425px) {
-	.addHauntedForm input[type=text]{
+	.hauntedPlaceForm input[type=text]{
 		max-width: 100%;
 	}
 }
-

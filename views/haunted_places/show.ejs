@@ -1,49 +1,48 @@
 <% include ../partials/header.ejs %>
-
-<h1>More Info on <%= haunted_place.name %></h1>
-
-<h2>Image for this place. Spooky!</h2>
-<div>
+<div class="container showPage">
+	<h1><%= haunted_place.name %></h1>
 	<img src="<%= haunted_place.image %>">
-</div>
-<div>
-	<p><%= haunted_place.description %></p>
-</div>
-<p><b>Submitted By: <%= haunted_place.author.username %></b></p>
-</br>
-
-<% if (currentUser && haunted_place.author.id.equals(currentUser._id)){ %>
 	<div>
-		<a class="btn btn-warning" href="/haunted_places/<%= haunted_place._id %>/edit">Edit</a>
+		<p><%= haunted_place.description %></p>
 	</div>
-	<form action="/haunted_places/<%= haunted_place._id %>?_method=DELETE" method="post">
-		<button class="btn btn-danger">Delete</button>
-	</form>
-<% } %>
+	<p><b>Submitted By: <%= haunted_place.author.username %></b></p>
 
-<h3>Comments</h3>
-<% haunted_place.comments.forEach(function(comment){ %>
-	<div>
-		<%= comment.text %>
-	</div>
-	<p>
-		<b>By: <%= comment.author.username %></b>
-	</p>
-	<% if (currentUser && comment.author.id.equals(currentUser._id)){ %>
-		<div>
-			<a class="btn btn-warning" href="/haunted_places/<%= haunted_place._id %>/comments/<%= comment._id %>/edit">Edit</a>
-		</div>
-		<form action="/haunted_places/<%= haunted_place._id %>/comments/<%= comment._id %>?_method=DELETE" method="post">
+	<% if (currentUser && haunted_place.author.id.equals(currentUser._id)){ %>
+		
+		<a class="btn btn-warning inline" href="/haunted_places/<%= haunted_place._id %>/edit">Edit</a>
+		
+		<form class="inlineBlock" action="/haunted_places/<%= haunted_place._id %>?_method=DELETE" method="post">
 			<button class="btn btn-danger">Delete</button>
 		</form>
 	<% } %>
-	</br>
-<% }); %>
 
+	<h3>Comments</h3>
+	<% haunted_place.comments.forEach(function(comment){ %>
+		<div class="comment">	
+			<div>
+				<%= comment.text %>
+			</div>
+			<% if (currentUser && comment.author.id.equals(currentUser._id)){ %>
+				<div class="commentButtons">
+					<a class="btn btn-warning" href="/haunted_places/<%= haunted_place._id %>/comments/<%= comment._id %>/edit">Edit</a>
+					
+					<form class="inlineBlock" action="/haunted_places/<%= haunted_place._id %>/comments/<%= comment._id %>?_method=DELETE" method="post">
+						<button class="btn btn-danger">Delete</button>
+					</form>
+			</div>
+			<% } %>
+			<p>
+				<b>By: <%= comment.author.username %></b>
+			</p>
+		</div>
+	<% }); %>
 
-<a class="btn btn-success" href="/haunted_places/<%= haunted_place._id %>/comments/new">Add New Comment</a>
+	<div id="showPageBottomButtons">
+		<a class="btn btn-success" href="/haunted_places/<%= haunted_place._id %>/comments/new">Add New Comment</a>
 
+		<a class="btn btn-info" href="/haunted_places">Back</a>
+	</div>
 
-<a href="/haunted_places">Click here to go back to the haunted places.</a>
+</div> <!-- End of container -->
 
 <% include ../partials/footer.ejs %>
