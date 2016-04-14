@@ -1,10 +1,9 @@
 <% include ../partials/header.ejs %>
 
-<div class="container form">
-	<h1>Add New Comment to <%= haunted_place.name %></h1>
+<div class="container comment">
 	<form action="/haunted_places/<%= haunted_place._id %>/comments" method="post">
 		<div class="form-group">
-			<label>Comment</label>
+			<label>Add comment to <%= haunted_place.name %></label>
 			<textarea class="form-control" rows="5" name="comment[text]"></textarea>
 		</div>
 		<button type="submit" class="btn btn-default">Submit</button>

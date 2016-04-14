@@ -1,6 +1,7 @@
 <% include ../partials/header.ejs %>
 
-<div class="container form"> 
+<div class="container hauntedPlaceForm">
+<h1>Edit Your Haunted Spot</h1> 
 	<form action="/haunted_places/<%= haunted_place._id %>?_method=PUT" method="post">
 		<div class="form-group">
 			<label>Name</label>
