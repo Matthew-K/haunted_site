@@ -2,8 +2,8 @@
 <div class="container showPage">
 	<h1><%= haunted_place.name %></h1>
 	<img src="<%= haunted_place.image %>">
-	<div>
-		<p><%= haunted_place.description %></p>
+	<div id="showPageDescription">
+		<%= haunted_place.description %>
 	</div>
 	<p><b>Submitted By: <%= haunted_place.author.username %></b></p>
 
