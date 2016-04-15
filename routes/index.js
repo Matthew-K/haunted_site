@@ -1,7 +1,8 @@
 var express 	= require("express"),
 	router 		= express.Router(),
 	passport 	= require("passport"),
-	User 		= require("../models/user");
+	User 		= require("../models/user"),
+	middleware 	= require("../middleware");
 
 // HOME PAGE
 router.get("/", function(req, res) {
@@ -10,16 +11,15 @@ router.get("/", function(req, res) {
 
 // Show register form
 router.get("/register", function(req, res){
-   res.render("register"); 
+   res.render("register", {userMessage: req.flash("userMessage"), passwordMessage: req.flash("passwordMessage")}); 
 });
 
 // Sign up new user
-router.post("/register", function(req, res){
+router.post("/register", middleware.checkUsernameLength, middleware.checkPassword, function(req, res){
 	var newUser = new User({username: req.body.username});
 	User.register(newUser, req.body.password, function(err, user){
 		if(err){
-			req.flash("error", err.message);
-			console.log(err);
+			req.flash("userMessage", "The given username is already registered");
 			return res.redirect("/register");
 		}
 		passport.authenticate("local")(req, res, function(){

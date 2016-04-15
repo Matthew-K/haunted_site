@@ -6,13 +6,29 @@
 		<div class="form-group">
 			<label>Username</label>
 		    <input type="text" name="username" class="form-control">
+			<% if(userMessage && userMessage.length > 0) { %>
+				<div class="signUpAlert">
+					<%= userMessage %>
+				</div>
+			<% } %>
 		</div>
 		<div class="form-group">
 			<label>Password</label>
 		    <input type="password" name="password" class="form-control">
 		</div>
+		<div class="form-group">
+			<label>Confirm Password</label>
+		    <input type="password" name="confirmPassword" class="form-control">
+			<% if(passwordMessage && passwordMessage.length > 0) { %>
+				<div class="signUpAlert">
+					<%= passwordMessage %>
+				</div>
+			<% } %>
+		</div>
 		<a class="btn btn-default" href="/haunted_places">Cancel</a>
 		<button type="submit" class="btn btn-primary">Sign Up</button>
 	</form>
 </div>
+
+<script src="/javascript/sign_up.js"></script>
 <% include partials/footer.ejs %>
