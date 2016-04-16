@@ -2,7 +2,7 @@
 
 <div class="container hauntedPlaceForm">
 	<h1>Add a Haunted Place</h1>
-	<form action="/haunted_places" method="post">
+	<form id="newHauntForm" action="/haunted_places" method="post">
 		<div class="form-group">
 			<label>Name</label>
 		    <input type="text" name="name" class="form-control">
@@ -16,8 +16,11 @@
 			<textarea class="form-control" rows="5" name="description"></textarea>
 		</div>
 		<a class="btn btn-default" href="/haunted_places">Cancel</a>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
 	</form>
 </div>
+
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
+<script src="/javascript/validate_forms.js"></script>
 
 <% include ../partials/footer.ejs %>

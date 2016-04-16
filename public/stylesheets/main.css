@@ -103,6 +103,9 @@ a.btn.btn-warning{
 	font-size: .9em;
 }
 
+.my-error-class {
+    color:#FF0000;  /* red */
+}
 
 @media only screen and (max-width: 425px) {
 	.hauntedPlaceForm input[type=text]{
