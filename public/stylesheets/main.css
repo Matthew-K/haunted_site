@@ -105,7 +105,42 @@ a.btn.btn-warning{
 
 .my-error-class {
     color:#FF0000;  /* red */
+    font-size: .9em;
 }
+
+#passwordInfo{
+	display: none;
+	padding-bottom: 10px;
+}
+
+#passwordInfo ul{
+	margin: 0;
+    padding: 0;
+	list-style-type: none;
+}
+
+.invalid {
+    padding-left:22px;
+    line-height:22px;
+    color: #FF3434;
+}
+.valid {
+    padding-left:22px;
+    line-height:22px;
+    color: #008F00;
+}
+
+.thumbnail h4{
+	margin-left: 22px;
+}
+
+ul .glyphicon-ok{
+	display:none;
+}
+
+/*ul .glyphicon-remove{
+	display:none;
+}*/
 
 @media only screen and (max-width: 425px) {
 	.hauntedPlaceForm input[type=text]{

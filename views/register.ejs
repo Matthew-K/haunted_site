@@ -1,7 +1,7 @@
 <% include partials/header.ejs %>
 
 <div class="container form">
-	<form action="/register" method="post">
+	<form id="registerForm" action="/register" method="post">
 	<h1>Sign Up</h1>
 		<div class="form-group">
 			<label>Username</label>
@@ -16,6 +16,31 @@
 			<label>Password</label>
 		    <input type="password" name="password" class="form-control">
 		</div>
+		<div id="passwordInfo" class="thumbnail">
+		    <h4>Password must:</h4>
+		    <ul>
+		        <li id="pwLength" class="invalid">
+		        	<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+		        	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 
+		        	Be at least 8 characters long
+		        </li>
+		        <li id="pwUppercase" class="invalid">
+		        	<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+		        	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 
+		        	Contain an uppercase letter
+		        </li>
+		        <li id="pwLowercase" class="invalid">
+		        	<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+		        	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 
+		        	Contain a lowercase letter
+		        </li>
+		        <li id="pwNumber" class="invalid">
+		        	<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+		        	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 
+		        	Contain a number
+		        </li>
+		    </ul>
+		</div>
 		<div class="form-group">
 			<label>Confirm Password</label>
 		    <input type="password" name="confirmPassword" class="form-control">
@@ -27,8 +52,11 @@
 		</div>
 		<a class="btn btn-default" href="/haunted_places">Cancel</a>
 		<button type="submit" class="btn btn-primary">Sign Up</button>
+
 	</form>
 </div>
 
-<script src="/javascript/sign_up.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
+<script src="/javascript/forms.js"></script>
+
 <% include partials/footer.ejs %>
