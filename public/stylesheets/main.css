@@ -119,12 +119,12 @@ a.btn.btn-warning{
 	list-style-type: none;
 }
 
-.invalid {
+#passwordInfo .invalid {
     padding-left:22px;
     line-height:22px;
     color: #FF3434;
 }
-.valid {
+#passwordInfo .valid {
     padding-left:22px;
     line-height:22px;
     color: #008F00;
@@ -137,10 +137,6 @@ a.btn.btn-warning{
 ul .glyphicon-ok{
 	display:none;
 }
-
-/*ul .glyphicon-remove{
-	display:none;
-}*/
 
 @media only screen and (max-width: 425px) {
 	.hauntedPlaceForm input[type=text]{

@@ -11,15 +11,16 @@ router.get("/", function(req, res) {
 
 // Show register form
 router.get("/register", function(req, res){
-   res.render("register", {userMessage: req.flash("userMessage"), passwordMessage: req.flash("passwordMessage")}); 
+   res.render("register");
+
 });
 
 // Sign up new user
-router.post("/register", middleware.checkUsernameLength, middleware.checkPassword, function(req, res){
+router.post("/register", function(req, res){
 	var newUser = new User({username: req.body.username});
 	User.register(newUser, req.body.password, function(err, user){
 		if(err){
-			req.flash("userMessage", "The given username is already registered");
+			req.flash("error", "The given username is already registered.");
 			return res.redirect("/register");
 		}
 		passport.authenticate("local")(req, res, function(){

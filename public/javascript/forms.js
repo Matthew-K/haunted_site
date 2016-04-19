@@ -1,6 +1,10 @@
 $(document).ready(function () {
 
-// Validates form used for submitting a new haunted place
+// ==============================
+//     Add Haunted Place Form 
+// ==============================
+
+// Validates form used for submitting a new haunted place using jQuery Validation plugin
 $("#newHauntForm").validate({
 	rules: {
         name: {
@@ -23,71 +27,112 @@ $("#newHauntForm").validate({
     errorClass: "my-error-class"
 });
 
-// Checks password strength when a new user registers. Middleware was used to validate other aspects of this form just to get practice with flash messages.
 
-/*At least 8 characters—the more characters, the better
-A mixture of both uppercase and lowercase letters
-A mixture of letters and numbers
-Inclusion of at least one special character, e.g., ! @ # ? ]*/ 
+// ==============================
+//     Register Form 
+// ==============================
 
+// Used for passwordCheck function. 
+var passwordStrength = {
+    length: false,
+    uppercaseChar: false,
+    lowercaseChar: false,
+    number: false
+};
 
-// $.validator.addMethod("passwordStrength", function(value, element){
-//     return this.optional(element) 
-//     || value.length >= 8
-//     && /\d/.test(value)
-//     && /[a-z]/.test(value)
-//     &&/[A-Z]/.test(value)
-// }, "Password must at least: <li>be 8 characters long</li> <li>contain an uppercase letter</li> <li>contain a lowercase letter</li><li>contain a number</li>"
-// );
+// Checks to see if the values in passwordStrength are all true
+var passwordCheck = function(){
+    console.log("running");
+    for (var condition in passwordStrength){
+        if (passwordStrength[condition] === false){
+            return false;
+        }
+    }
+    return true;
+};
 
-// $("#registerForm").validate({
-//     rules: {
-//         password: {
-//             required: true,
-//             maxlength: 10
-//         }
-//     },
-//     errorClass: "my-error-class"
-// });
+// Custom method for jquery Validation plugin
+// Uses passwordCheck function to check if all conditions for password are met. 
+$.validator.addMethod("strongPassword", function(value,element){
+    return this.optional(element) || passwordCheck();
+}, "Your password does not meet the requirements.");
 
+// Validates form used for submitting a new haunted place using jQuery Validation plugin
+$("#registerForm").validate({
+    rules: {
+        username: {
+            required: true,
+            maxlength: 30
+        },
+        password: {
+            required: true,
+            strongPassword: true
+        },
+        confirmPassword: {
+            required: true,
+            equalTo: "#registerPassword"
+        }
+    },
+    messages: {
+        username: {
+            maxlength: "Username cannot exceed 30 characters."
+        },
+        password: {
+            required: "Please enter a password."
+        },
+        confirmPassword: {
+            equalTo: "The passwords do not match."
+        }
+    },
+    errorClass: "my-error-class"
+});
 
 // Displays an information box showing if user has met all password requirements
 // Shows a 'X' icon font to invalid classes
 // Shows a checkmark icon font to valid classes
-$("input[type=password]").keyup(function() {
+// Updates corresponding passwordStrength values to true if condition is met
+$("#registerPassword").keyup(function() {
     var password = $(this).val();
     // check for length of at least 8 characters
     if (password.length >= 8){
         $("#pwLength").removeClass("invalid").addClass('valid').find('.glyphicon-ok').show();
         $("#pwLength").find('.glyphicon-remove').hide();
+        passwordStrength.length = true;
 
     } else{
         $("#pwLength").removeClass("valid").addClass("invalid").find('.glyphicon-remove').show();
         $("#pwLength").find('.glyphicon-ok').hide();
+        passwordStrength.length = false;
     }
     // check for uppercase letter
     if ( password.match(/[A-Z]/) ) {
         $('#pwUppercase').removeClass('invalid').addClass('valid').find('.glyphicon-ok').show();
         $("#pwUppercase").find('.glyphicon-remove').hide();
+        passwordStrength.uppercaseChar = true;
     } else {
         $('#pwUppercase').removeClass('valid').addClass('invalid').find('.glyphicon-remove').show();
         $("#pwUppercase").find('.glyphicon-ok').hide();
+        passwordStrength.uppercaseChar = false;
     }
     // check for lowercase letter
     if ( password.match(/[a-z]/) ) {
         $('#pwLowercase').removeClass('invalid').addClass('valid').find('.glyphicon-ok').show();
         $("#pwLowercase").find('.glyphicon-remove').hide();
+        passwordStrength.lowercaseChar = true;
     } else {
         $('#pwLowercase').removeClass('valid').addClass('invalid').find('.glyphicon-remove').show();
         $("#pwLowercase").find('.glyphicon-ok').hide();
+        passwordStrength.lowercaseChar = false;
     }
     // check for number
     if ( password.match(/[0-9]/) ) {
         $('#pwNumber').removeClass('invalid').addClass('valid').find('.glyphicon-ok').show();
         $("#pwNumber").find('.glyphicon-remove').hide();
+        passwordStrength.number = true;
     } else {
         $('#pwNumber').removeClass('valid').addClass('invalid').find('.glyphicon-remove').show();
         $("#pwNumber").find('.glyphicon-ok').hide();
+        passwordStrength.number = false;
     }
 // shows info box when user focused on password inputs
 }).focus(function() {
@@ -97,5 +142,6 @@ $("input[type=password]").keyup(function() {
 }).blur(function() {
     $("#passwordInfo").hide();
 });
+
 
 }); // End of $(document).ready(function () {

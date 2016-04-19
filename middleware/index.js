@@ -59,29 +59,4 @@ middleware.checkCommentOwner = function(req, res, next){
 	}
 };
 
-middleware.checkUsernameLength = function(req, res, next){
-	if (req.body.username.length > 35){
-		req.flash("userMessage", "Username cannot exceed 35 characters");
-		res.redirect("back");
-	} else {
-		return next();
-	}
-};
-
-middleware.checkPassword = function(req, res, next){
-	if (req.body.password.length <= 6){
-			req.flash("passwordMessage", "Password must be longer than 6 characters");
-			return res.redirect("back");
-		} else {
-			if (req.body.password === req.body.confirmPassword){
-				return next();
-			} else {
-				req.flash("passwordMessage", "Passwords do not match");
-				return res.redirect("back");
-			}
-		}
-};
-
-
-
 module.exports = middleware;

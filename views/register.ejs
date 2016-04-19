@@ -1,21 +1,18 @@
 <% include partials/header.ejs %>
 
 <div class="container form">
+	<!-- Sign Up Form -->
 	<form id="registerForm" action="/register" method="post">
 	<h1>Sign Up</h1>
 		<div class="form-group">
 			<label>Username</label>
-		    <input type="text" name="username" class="form-control">
-			<% if(userMessage && userMessage.length > 0) { %>
-				<div class="signUpAlert">
-					<%= userMessage %>
-				</div>
-			<% } %>
+		    <input type="text" id="#registerUsername" name="username" class="form-control">
 		</div>
 		<div class="form-group">
 			<label>Password</label>
-		    <input type="password" name="password" class="form-control">
+		    <input type="password" id="registerPassword" name="password" class="form-control">
 		</div>
+		<!-- Password requirements info box -->
 		<div id="passwordInfo" class="thumbnail">
 		    <h4>Password must:</h4>
 		    <ul>
@@ -44,17 +41,11 @@
 		<div class="form-group">
 			<label>Confirm Password</label>
 		    <input type="password" name="confirmPassword" class="form-control">
-			<% if(passwordMessage && passwordMessage.length > 0) { %>
-				<div class="signUpAlert">
-					<%= passwordMessage %>
-				</div>
-			<% } %>
 		</div>
 		<a class="btn btn-default" href="/haunted_places">Cancel</a>
-		<button type="submit" class="btn btn-primary">Sign Up</button>
-
+		<button id="registerSubmitButton"type="submit" class="btn btn-primary">Sign Up</button>
 	</form>
-</div>
+</div> <!-- End of container -->
 
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
 <script src="/javascript/forms.js"></script>
