@@ -1,39 +1,45 @@
 <% include ../partials/header.ejs %>
 <div class="container showPage">
-	<h1><%= haunted_place.name %></h1>
-	<img src="<%= haunted_place.image %>">
-	<div id="showPageDescription">
-		<%= haunted_place.description %>
+	<div id="showHauntedHouse">
+		<h1><%= haunted_place.name %></h1>
+		<img src="<%= haunted_place.image %>">
+		<div id="showPageDescription">
+			<%= haunted_place.description %>
+			<div id="showSubmittedBy">Submitted By: <%= haunted_place.author.username %></div>
+		
+			<% if (currentUser && haunted_place.author.id.equals(currentUser._id)){ %>
+				<div class="editDeleteButtons">
+					<a class="btn btn-warning inline" href="/haunted_places/<%= haunted_place._id %>/edit">Edit</a>
+					
+					<form class="inlineBlock" action="/haunted_places/<%= haunted_place._id %>?_method=DELETE" method="post">
+						<button class="btn btn-danger">Delete</button>
+					</form>
+				</div>
+			<% } %>
+		</div>
 	</div>
-	<p><b>Submitted By: <%= haunted_place.author.username %></b></p>
+	<div id="leaveCommentMessage">
+		<h3>Leave a Comment</h3>
+		In order to leave a comment you must be a registered user. Click <a href="/register">here to register</a> or or click <a href="/login">here to login.</a>
+	</div>
 
-	<% if (currentUser && haunted_place.author.id.equals(currentUser._id)){ %>
-		
-		<a class="btn btn-warning inline" href="/haunted_places/<%= haunted_place._id %>/edit">Edit</a>
-		
-		<form class="inlineBlock" action="/haunted_places/<%= haunted_place._id %>?_method=DELETE" method="post">
-			<button class="btn btn-danger">Delete</button>
-		</form>
-	<% } %>
-
-	<h3>Comments</h3>
 	<% haunted_place.comments.forEach(function(comment){ %>
 		<div class="comment">	
+			<p>
+				<b><span class="commentAuthor"><%= comment.author.username %> says:</span></b>
+			</p>
 			<div>
 				<%= comment.text %>
 			</div>
 			<% if (currentUser && comment.author.id.equals(currentUser._id)){ %>
-				<div class="commentButtons">
+				<div class="editDeleteButtons">
 					<a class="btn btn-warning" href="/haunted_places/<%= haunted_place._id %>/comments/<%= comment._id %>/edit">Edit</a>
 					
 					<form class="inlineBlock" action="/haunted_places/<%= haunted_place._id %>/comments/<%= comment._id %>?_method=DELETE" method="post">
 						<button class="btn btn-danger">Delete</button>
 					</form>
-			</div>
+				</div>
 			<% } %>
-			<p>
-				<b>By: <%= comment.author.username %></b>
-			</p>
 		</div>
 	<% }); %>
 

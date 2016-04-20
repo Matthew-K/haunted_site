@@ -40,18 +40,20 @@ function seedDB(){
                         if(err){
                             console.log(err);
                         } else {
-                            Comment.create(
-                                {
-                                    text: "This is a spooky place.",
-                                    author: "Albert"
-                                }, function(err, comment){
-                                    if(err){
-                                        console.log(err);
-                                    } else {
-                                        haunted_place.comments.push(comment);
-                                        haunted_place.save();
-                                    }
-                                });
+                            for (var i = 0; i < 5; i++){
+                                Comment.create(
+                                    {
+                                        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pharetra pharetra nunc, ac convallis mi faucibus ut. Ut varius sodales tellus at bibendum. Suspendisse et fermentum enim. Nullam a nisl sit amet massa tristique elementum quis nec urna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc id dignissim augue. Mauris a lorem nec arcu vestibulum ultrices. Donec consectetur nunc quis ultrices sollicitudin. Pellentesque iaculis diam quis tellus ullamcorper tincidunt. Aenean nec lacus dui. Suspendisse et massa neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris ac luctus sapien, a ultricies leo. Duis interdum vehicula felis elementum tincidunt. Pellentesque a eros ac leo posuere cursus et vitae sem. Nulla ac elementum eros. Sed malesuada massa dictum, dignissim dui non",
+                                        author: "Albert"
+                                    }, function(err, comment){
+                                        if(err){
+                                            console.log(err);
+                                        } else {
+                                            haunted_place.comments.push(comment);
+                                            haunted_place.save();
+                                        }
+                                    });
+                            }
                         }   
                     });
                 }

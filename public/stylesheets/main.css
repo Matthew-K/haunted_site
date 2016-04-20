@@ -1,8 +1,22 @@
+*{
+	line-height: 1.6;
+}
 .hauntedPlaceEntry{
 	margin-bottom: 25px;
 }
 
+h1, h2, h3{
+	font-family: 'Vollkorn', serif;
+	font-weight: bold;
+	color: #072C67  ;
+	/*#06235C*/
+}
+
+h1{
+	font-size: 3em;
+}
 .title{
+	font-family: 'Vollkorn', serif;
 	background-color: #2D2D2D;
 	color: white;
 	text-align: center;
@@ -70,10 +84,23 @@ textarea {
     margin-bottom: 10px;
 }
 
-#showPageDescription{
-	word-wrap: break-word;
+#showHauntedHouse{
+
 }
 
+#showPageDescription{
+	word-wrap: break-word;
+	font-size: 1.3em;
+
+}
+
+
+#showSubmittedBy{
+	padding: 15px;
+	margin: 10px 0;
+	background-color: #333333;
+	color: white;
+}
 
 a.btn.btn-warning{
 	display: inline-block;
@@ -88,12 +115,28 @@ a.btn.btn-warning{
 }
 
 .comment{
-	margin-bottom:15px;
-	background-color: #DEDED2;
+	/*margin-bottom:15px;*/
+	border-bottom: 2px solid #B3B3B3;
+	padding: 15px 0;
 	word-wrap: break-word;
+	font-size: 1.3em;
 }
 
-.commentButtons{
+#leaveCommentMessage{
+	background-color: #E4E4E4;
+	padding: 25px 15px;
+	margin-top: 30px;
+}
+
+#leaveCommentMessage h3{
+	margin-top: 0;
+}
+
+.commentAuthor{
+	color: #06235C;
+}
+
+.editDeleteButtons{
 	margin:7px 0;
 }
 

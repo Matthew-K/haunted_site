@@ -47,7 +47,7 @@ app.use("/haunted_places", hauntedRoutes);
 app.use("/haunted_places/:id/comments", commentRoutes);
 
 //Seed the database
-seedDB();
+// seedDB();
 
 app.listen(3000, function () {
   console.log("Server started");
