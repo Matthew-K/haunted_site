@@ -1,40 +1,49 @@
 *{
 	line-height: 1.6;
+	color: #2A2E33;
+	font-family: 'Karla', sans-serif;
 }
+
+body{
+	background-color: #CACBCE;
+}
+
+.container{
+	padding: 0 25px;
+}
+
 .hauntedPlaceEntry{
 	margin-bottom: 25px;
 }
 
-h1, h2, h3{
-	font-family: 'Vollkorn', serif;
+h1{
+	font-family: 'Alegreya', serif;
+	font-size: 3em;
 	font-weight: bold;
-	color: #072C67  ;
-	/*#06235C*/
+	color: #102440;
 }
 
-h1{
-	font-size: 3em;
-}
 .title{
-	font-family: 'Vollkorn', serif;
-	background-color: #2D2D2D;
-	color: white;
+	font-family: 'Alegreya', serif;
+	font-weight: bold;
+	/*background-color: #2D2D2D;*/
+	color: black;
 	text-align: center;
-	padding: 10px;
+	/*padding: 10px;*/
 	font-size: 1.5em;
-	min-height: 50px;
+	/*min-height: 50px;*/
 }
 
 .galleryPic{
-	background-color: #DEDED2; 
-	height: 225px;
+	background-color: white; 
+	height: 255px;
 }
 
 .galleryPic img{
     display: block;
     margin: 0 auto;
-    max-height: 100%;
-    max-width: 90%;
+    max-height: 80%;
+    max-width: 80%;
     position: relative;
   	top: 50%;
   	-webkit-transform: translateY(-50%);
@@ -43,7 +52,7 @@ h1{
 }
 
 .description{
-	background-color: gray;
+	background-color: #CACBCE ;
 	padding: 10px;
 }
 
@@ -74,6 +83,7 @@ textarea {
 
 .showPage{
 	max-width: 768px;
+	background-color: white;
 }
 
 .showPage img{
@@ -84,21 +94,15 @@ textarea {
     margin-bottom: 10px;
 }
 
-#showHauntedHouse{
-
-}
-
 #showPageDescription{
 	word-wrap: break-word;
 	font-size: 1.3em;
-
 }
-
 
 #showSubmittedBy{
 	padding: 15px;
 	margin: 10px 0;
-	background-color: #333333;
+	background-color: #07101C;
 	color: white;
 }
 
@@ -110,38 +114,47 @@ a.btn.btn-warning{
 	display: inline-block;
 }
 
-#showPageBottomButtons{
-	margin: 15px 0;
+#leaveCommentMessage{
+	background-color: #CACBCE;
+	padding: 25px 15px;
+	margin-top: 30px;
+	font-size: 1.2em;
+}
+
+#leaveCommentMessage h2{
+	font-family: 'Alegreya', serif;
+	margin-top: 0;
+	color: #FF4E00;
+	font-size: 2.5em;
+	font-weight: normal;
+}
+
+#leaveCommentMessage a{
+	color: #FF4E00;
 }
 
 .comment{
-	/*margin-bottom:15px;*/
-	border-bottom: 2px solid #B3B3B3;
+	border-bottom: 2px solid #CACBCE;
 	padding: 15px 0;
 	word-wrap: break-word;
 	font-size: 1.3em;
 }
 
-#leaveCommentMessage{
-	background-color: #E4E4E4;
-	padding: 25px 15px;
-	margin-top: 30px;
-}
-
-#leaveCommentMessage h3{
-	margin-top: 0;
-}
-
 .commentAuthor{
-	color: #06235C;
+	color: #102440;
+	font-weight: bold;
 }
 
 .editDeleteButtons{
 	margin:7px 0;
 }
 
+#showPageBottomButtons{
+	margin: 15px 0;
+}
+
 .signUpAlert{
-	color:red;
+	color: red;
 	font-weight: bold;
 	font-size: .9em;
 }
