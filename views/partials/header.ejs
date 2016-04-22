@@ -14,7 +14,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-default navbar-custom">
 	  <div class="container-fluid">
 	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
@@ -31,8 +31,8 @@
 	    <div class="collapse navbar-collapse" id="collapseNavbar">
 	      <ul class="nav navbar-nav navbar-right">
 	      	<% if(!currentUser){ %>
-		        <li><a href="/login">Log In</a></li>
-		        <li><a href="/register">Sign Up</a></li>
+		        <li><a class="navbar-highlight" href="/login">Log In</a></li>
+		        <li ><a class="navbar-highlight" href="/register">Sign Up</a></li>
 		    <% } else{ %>
 		    	<li><a href="#"><%= currentUser.username %> <span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
 		        <li><a href="/logout">Log Out</a></li>
