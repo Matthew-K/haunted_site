@@ -3,18 +3,20 @@
 <div class="container">
 	<div class="row" style="display:flex; flex-wrap: wrap;">
 		<% haunted_places.forEach(function(spot){ %>
-			<div class=" col-lg-4 col-sm-6 hauntedPlaceEntry">
-			<a href="/haunted_places/<%= spot._id %>">
-				<div class="galleryPic">
-					<img src="<%= spot.image %>" alt="<%= spot.name %>">
-				</div>
-			</a>
+			<div class=" col-lg-4 col-sm-6">
+				<div class="hauntedPlaceEntry">
+					<a href="/haunted_places/<%= spot._id %>">
+						<div class="galleryPic">
+							<img src="<%= spot.image %>" alt="<%= spot.name %>">
+						</div>
+					</a>
 
-				<div class="description">
-					<div class="title">
-						<%= spot.name %>
-					</div>
-					<div class="descriptionText"><%= spot.description%></div>		
+						<div class="galleryDescription">
+							<div class="galleryTitle">
+								<%= spot.name %>
+							</div>
+							<div class="galleryDescriptionText"><%= spot.description%></div>	
+						</div>
 				</div>
 			</div>
 		<% }) %>

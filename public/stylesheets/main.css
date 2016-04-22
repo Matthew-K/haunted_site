@@ -12,9 +12,6 @@ body{
 	padding: 0 25px;
 }
 
-.hauntedPlaceEntry{
-	margin-bottom: 25px;
-}
 
 h1{
 	font-family: 'Alegreya', serif;
@@ -23,15 +20,22 @@ h1{
 	color: #102440;
 }
 
-.title{
+.hauntedPlaceEntry{
+	background-color: white;
+	width: 100%;
+	display: block;
+    margin: 0 auto;
+    border-top: 5px solid #07101C   ;
+    margin-bottom: 25px;
+    box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
+}
+
+.galleryTitle{
 	font-family: 'Alegreya', serif;
 	font-weight: bold;
-	/*background-color: #2D2D2D;*/
-	color: black;
+	color: #07101C ;
 	text-align: center;
-	/*padding: 10px;*/
 	font-size: 1.5em;
-	/*min-height: 50px;*/
 }
 
 .galleryPic{
@@ -51,12 +55,11 @@ h1{
   	transform: translateY(-50%);
 }
 
-.description{
-	background-color: #CACBCE ;
-	padding: 10px;
+.galleryDescription{
+	padding: 0 10px 15px 10px;
 }
 
-.descriptionText{
+.galleryDescriptionText{
 	overflow: hidden;
 	height: 60px;
 }
@@ -111,6 +114,7 @@ a.btn.btn-warning{
 	color: #FF4E00;
 	font-size: 2.5em;
 	font-weight: normal;
+
 }
 
 #leaveCommentMessage a{
