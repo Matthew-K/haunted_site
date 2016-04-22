@@ -9,7 +9,7 @@
 			<%= haunted_place.description %>
 			<% if (currentUser && haunted_place.author.id.equals(currentUser._id)){ %>
 				<div class="editDeleteButtons">
-					<a class="btn btn-warning inline" href="/haunted_places/<%= haunted_place._id %>/edit">Edit</a>	
+					<a class="btn btn-default inline" href="/haunted_places/<%= haunted_place._id %>/edit">Edit</a>	
 					<form class="inlineBlock" action="/haunted_places/<%= haunted_place._id %>?_method=DELETE" method="post">
 						<button class="btn btn-danger">Delete</button>
 					</form>
@@ -35,7 +35,7 @@
 			</div>
 			<% if (currentUser && comment.author.id.equals(currentUser._id)){ %>
 				<div class="editDeleteButtons">
-					<a class="btn btn-warning" href="/haunted_places/<%= haunted_place._id %>/comments/<%= comment._id %>/edit">Edit</a>
+					<a class="btn btn-default" href="/haunted_places/<%= haunted_place._id %>/comments/<%= comment._id %>/edit">Edit</a>
 					<form class="inlineBlock" action="/haunted_places/<%= haunted_place._id %>/comments/<%= comment._id %>?_method=DELETE" method="post">
 						<button class="btn btn-danger">Delete</button>
 					</form>
@@ -45,8 +45,8 @@
 	<% }); %>
 
 	<div id="showPageBottomButtons">
-		<a class="btn btn-success" href="/haunted_places/<%= haunted_place._id %>/comments/new">Add New Comment</a>
-		<a class="btn btn-info" href="/haunted_places">Back</a>
+		<a class="btn btn-orange" href="/haunted_places/<%= haunted_place._id %>/comments/new">Add New Comment</a>
+		<a class="btn btn-default" href="/haunted_places">Back</a>
 	</div>
 
 </div> <!-- End of container -->

@@ -282,3 +282,28 @@ ul .glyphicon-remove{
 		max-width: 100%;
 	}
 }
+
+.btn-orange {
+    color: #fff;
+    background-color: #F76829;
+    border-color: #F75B18;
+}
+
+.btn-orange:hover {
+    color: #F7F7F7;
+    background-color: #F65713;
+    border-color: #F14E09;
+}
+
+.btn-orange:active {
+    color: #E3E3E3;
+    background-color: #D44508;
+    border-color: #C54007;
+}
+
+.btn-orange:focus, .btn-custom:active, .btn-custom.active, .btn-custom:focus:active {
+  background-image: none;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}

@@ -1,6 +1,6 @@
 <% include ../partials/header.ejs %>
 
-<div class="container hauntedPlaceForm">
+<div class="container form hauntedPlaceForm">
 <h1>Edit Your Haunted Spot</h1> 
 	<form action="/haunted_places/<%= haunted_place._id %>?_method=PUT" method="post">
 		<div class="form-group">
@@ -16,7 +16,7 @@
 			<textarea class="form-control" rows="5" name="haunted_place[description]"><%= haunted_place.description %></textarea>
 		</div>
 		<a class="btn btn-default" href="javascript:history.back()">Cancel</a>
-		<button type="submit" class="btn btn-primary">Update</button>
+		<button type="submit" class="btn btn-orange">Update</button>
 	</form>
 </div>
 
