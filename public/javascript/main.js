@@ -1,10 +1,37 @@
+/*
+ * Copyright (c) 2014 Mike King (@micjamking)
+ *
+ * jQuery Succinct plugin
+ * Version 1.1.0 (October 2014)
+ *
+ * Licensed under the MIT License
+ */
+/*global jQuery*/
+!function(a){"use strict";a.fn.succinct=function(b){var c=a.extend({size:240,omission:"...",ignore:!0},b);return this.each(function(){var b,d,e=a(this),f=/[!-\/:-@\[-`{-~]$/,g=function(){e.each(function(){b=a(this).html(),b.length>c.size&&(d=a.trim(b).substring(0,c.size).split(" ").slice(0,-1).join(" "),c.ignore&&(d=d.replace(f,"")),a(this).html(d+c.omission))})};g()})}}(jQuery);
+
+// ---------------------------------------------------------------
+
+/*Truncates each description on the index page to be no more than 135 characters and follows it with an ellipsis*/
+$(function(){
+    $('.galleryDescriptionText').succinct({
+        size: 90
+    });
+});
+
+// ------------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------------
+
+
+// FORM VALIDATION - uses jQuery Validaton plugin
+
 $(document).ready(function () {
 
 // ==============================
 //     Add Haunted Place Form 
 // ==============================
 
-// Validates form used for submitting a new haunted place using jQuery Validation plugin
+// Validates form used for submitting a new haunted place
 $("#newHauntForm").validate({
 	rules: {
         name: {
