@@ -15,9 +15,6 @@ h1{
 	font-weight: bold;
 	color: #102440;
 }
-.container{
-	/*padding: 0 25px;*/
-}
 
 /* Navbar */
 .navbar-custom{
@@ -58,6 +55,19 @@ h1{
 .glyphicon-user:before {
     content: "\e008";
     color: #7A7D85;
+}
+
+/* - hamburger */
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle{
+	border-color: #FF4E00  ;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #FF4E00  ;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: rgba(255, 78, 0, 0.35);
 }
 
 
@@ -184,11 +194,11 @@ a.btn.btn-warning{
 	font-weight: bold;
 }
 
-/*Used for buttons on show page*/
+/* - used for buttons on show page*/
 .btn-margin{
 	margin: 7px 0;
 }
-/*Used for "Back to Haunted Places" button on show page*/
+/* - used for "Back to Haunted Places" button on show page*/
 #backTo{
 	margin-bottom: 7px;
 }
@@ -268,7 +278,7 @@ textarea {
 	margin-bottom: 5px;
 }
 
-/* Password Strength Info Box on Register Page*/
+/* - password strength info box in register form*/
 #passwordInfo{
 	display: none;
 	padding-bottom: 10px;
@@ -301,7 +311,9 @@ ul .glyphicon-remove{
 }
 
 
-/* Custom Buttons*/
+/* Custom Buttons */
+
+/* - orange button*/
 .btn-orange {
     color: #fff;
     background-color: #F76829;
@@ -327,28 +339,30 @@ ul .glyphicon-remove{
   box-shadow: none;
 }
 
-.btn-showpage{
+/* - "show more info buttons on index page*/
+.btn-more-info{
 	border-radius: 0;
 	background: #07101C ;
 	color: #fff ;
 }
 
-.btn-showpage:hover {
+.btn-more-info:hover {
     color: #fff;
     background-color: #112845;
 }
 
-.btn-showpage:active {
+.btn-more-info:active {
     color: #fff;
     background-color: #1C3F6E ;
 }
 
-.btn-showpage:focus, .btn-custom:active, .btn-custom.active, .btn-custom:focus:active {
+.btn-more-info:focus, .btn-custom:active, .btn-custom.active, .btn-custom:focus:active {
   background-image: none;
   outline: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+
 
 /* Media Queries */
 @media only screen and (max-width: 425px) {
