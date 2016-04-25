@@ -13,8 +13,8 @@
 
 /*Truncates each description on the index page to be no more than 135 characters and follows it with an ellipsis*/
 $(function(){
-    $('.descriptionText').succinct({
-        size: 135
+    $('.galleryDescriptionText').succinct({
+        size: 90
     });
 });
 

@@ -16,6 +16,8 @@ $("#newHauntForm").validate({
         	required: true
         },
         description: {
+            required: true,
+            minlength: 25,
         	maxlength: 15000,
         }
     },
