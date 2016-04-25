@@ -28,10 +28,10 @@ $(function(){
 $(document).ready(function () {
 
 // ==============================
-//     Add Haunted Place Form 
+//     Haunted Place Forms
 // ==============================
 
-// Validates form used for submitting a new haunted place
+// Validates form used for adding a new haunted place
 $("#newHauntForm").validate({
 	rules: {
         name: {
@@ -52,6 +52,71 @@ $("#newHauntForm").validate({
     	description: {
     		maxlength: "Your description is too long. Please shorten it."
     	}
+    },
+    errorClass: "my-error-class"
+});
+
+// Validates form used for editing haunted place
+$("#editHauntForm").validate({
+    rules: {
+        "haunted_place[name]": {
+            minlength: 3,
+            maxlength: 30,
+            required: true
+        },
+        "haunted_place[image]": {
+            required: true
+        },
+        "haunted_place[description]": {
+            required: true,
+            minlength: 25,
+            maxlength: 15000,
+        }
+    },
+    messages: {
+        description: {
+            maxlength: "Your description is too long. Please shorten it."
+        }
+    },
+    errorClass: "my-error-class"
+});
+
+
+// =====================
+//     Comment Forms
+// =====================
+
+// Validates form used for adding a new comment
+$("#newCommentForm").validate({
+    rules: {
+        "comment[text]": {
+            minlength: 15,
+            maxlength: 500,
+            required: true
+        }
+    },
+    messages: {
+        "comment[text]": {
+            required: "Please enter at least 15 characters."
+        }
+    },
+    errorClass: "my-error-class"
+});
+
+// Validates form used for editing comment
+$("#editCommentForm").validate({
+    rules: {
+        "comment[text]": {
+            minlength: 15,
+            maxlength: 15000,
+            required: true
+        }
+    },
+    messages: {
+        "comment[text]": {
+            required: "Please enter at least 15 characters.",
+            maxlength: "Please shorten your comment."
+        }
     },
     errorClass: "my-error-class"
 });
