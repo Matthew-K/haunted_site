@@ -16,9 +16,8 @@ h1{
 	color: #102440;
 }
 .container{
-	padding: 0 25px;
+	/*padding: 0 25px;*/
 }
-
 
 /* Navbar */
 .navbar-custom{
@@ -109,9 +108,15 @@ h1{
 
 .galleryDescriptionText{
 	overflow: hidden;
-	height: 40px;
+	min-height: 44px;*/
+	width: 100%;
 }
 
+.btnAddHaunt{
+	margin: 0 auto;
+	display: block;
+	width: 66.666%;
+}
 
 /* Show Page*/
 .showPage{
@@ -349,5 +354,9 @@ ul .glyphicon-remove{
 @media only screen and (max-width: 425px) {
 	.hauntedPlaceForm input[type=text]{
 		max-width: 100%;
+	}
+
+	.btnAddHaunt{
+		width: 100%;
 	}
 }
