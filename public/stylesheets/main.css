@@ -5,6 +5,11 @@
 	font-family: 'Karla', sans-serif;
 }
 
+.alert-text{
+	font-size: 1.5em;
+	text-align: center;
+}
+
 body{
 	background-color: #CACBCE;
 }
