@@ -91,7 +91,7 @@ $("#newCommentForm").validate({
     rules: {
         "comment[text]": {
             minlength: 15,
-            maxlength: 500,
+            maxlength: 15000,
             required: true
         }
     },
