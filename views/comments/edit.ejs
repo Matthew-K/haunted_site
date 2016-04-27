@@ -1,0 +1,14 @@
+<% include ../partials/header.ejs %>
+
+<div class="container form commentForm"> 
+	<form id="editCommentForm" action="/haunted_places/<%= haunted_place_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+		<div class="form-group">
+			<label>Edit Comment</label>
+			<textarea class="form-control" rows="5" name="comment[text]"><%= comment.text %></textarea>
+		</div>
+		<a class="btn btn-default" href="javascript:history.back()">Cancel</a>		
+		<button type="submit" class="btn btn-orange">Update</button>
+	</form>
+</div>
+
+<% include ../partials/footer.ejs %>

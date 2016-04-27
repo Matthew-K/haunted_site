@@ -1,40 +1,34 @@
 <% include ../partials/header.ejs %>
 
-<h1>Haunted Places</h1>
-
-
 <div class="container">
 	<div class="row" style="display:flex; flex-wrap: wrap;">
 		<% haunted_places.forEach(function(spot){ %>
-			<div class="col-lg-4 hauntedPlaceEntry .col-md-6">
-				<div class="title">
-					<%= spot.name %>
-				</div>
-				<div class="galleryPic">
-					<img src="<%= spot.image %>" alt="<%= spot.name %>">
-				</div>
-				<div class="description">
-					<div class="descriptionText"><%= spot.description%></div>		
-					<div>
-						<a class="btn btn-primary" href="/haunted_places/<%= spot._id %>">More Info</a>  
+			<div class="col-xs-12 col-lg-4 col-sm-6">
+				<div class="hauntedPlaceEntry">
+					<div class="galleryPic">
+						<img src="<%= spot.image %>" alt="<%= spot.name %>">
 					</div>
+
+					<div class="galleryDescription">
+						<div class="galleryTitle">
+							<%= spot.name %>
+						</div>
+						<div class="galleryDescriptionText">
+							<%= spot.description%>
+						</div>	
+						<div class="indexSubmittedBy">Submitted by: <%= spot.author.username %></div>
+					</div>
+					<a class="btn btn-more-info btn-block" href="/haunted_places/<%= spot._id %>">Show More Info</a>
 				</div>
 			</div>
 		<% }) %>
 	</div>
 
-	<div>
-		<a class="btn btn-success" href="/haunted_places/new">Add Haunted Place</a>
+	<div class="row">
+		<div class="col-xs-12">
+			<a class="btn btn-lg btn-orange btn-block btnAddHaunt" href="/haunted_places/new">Add Haunted Place</a>
+		</div>
 	</div>
 </div>
-
-<!-- Truncates each descriptions to be no more than 135 characters and follows it with an ellipsis -->
-<script>
-    $(function(){
-        $('.descriptionText').succinct({
-            size: 135
-        });
-    });
-</script>
 
 <% include ../partials/footer.ejs %>

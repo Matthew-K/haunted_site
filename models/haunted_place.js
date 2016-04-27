@@ -4,6 +4,13 @@ var hauntedPlaceSchema = mongoose.Schema({
     name: String,
     image: String,
     description: String,
+    author: {
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        },
+        username: String
+    },
     comments: [
     	{
     		type: mongoose.Schema.Types.ObjectId,
@@ -12,6 +19,6 @@ var hauntedPlaceSchema = mongoose.Schema({
     ]
 });
 
-var HauntedPlace = mongoose.model('haunted_place', hauntedPlaceSchema);
+var HauntedPlace = mongoose.model("haunted_place", hauntedPlaceSchema);
 
 module.exports = HauntedPlace;

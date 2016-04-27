@@ -1,8 +1,8 @@
 <% include ../partials/header.ejs %>
 
-<div class="container form">
-	<h1>Add New Haunted Place</h1>
-	<form action="/haunted_places" method="post">
+<div class="container form hauntedPlaceForm">
+	<h1>Add a Haunted Place</h1>
+	<form id="newHauntForm" action="/haunted_places" method="post">
 		<div class="form-group">
 			<label>Name</label>
 		    <input type="text" name="name" class="form-control">
@@ -15,10 +15,9 @@
 			<label>Description</label>
 			<textarea class="form-control" rows="5" name="description"></textarea>
 		</div>
-		<button type="submit" class="btn btn-default">Submit</button>
+		<a class="btn btn-default" href="/haunted_places">Cancel</a>
+		<button type="submit" class="btn btn-orange" id="submit-button">Submit</button>
 	</form>
 </div>
-
-
 
 <% include ../partials/footer.ejs %>

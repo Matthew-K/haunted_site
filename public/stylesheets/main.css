@@ -1,42 +1,294 @@
-* {
-	 box-sizing: border-box; 
+/*------------------------------------------*/
+/* General */
+
+*{
+	line-height: 1.6;
+	color: #2A2E33;
+	font-family: 'Karla', sans-serif;
+	box-sizing: border-box;
 }
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.alert-text{
+	font-size: 1.2em;
+	text-align: center;
+}
+
+body{
+	background-color: #CACBCE;
+	/* Margin bottom by footer height */
+	margin-bottom: 50px;
+}
+
+h1{
+	font-family: 'Alegreya', serif;
+	font-size: 3em;
+	font-weight: bold;
+	color: #102440;
+}
+
+
+/*------------------------------------------*/
+/* Navbar */
+
+.navbar-custom{
+	background-color: #07101C;
+	color:red;
+	border-color: #07101C ;
+	border-radius: 0;
+	border-bottom: 2px solid #FF4E00 ;
+}
+
+.navbar-custom .navbar-brand {
+    color: #7A7D85;
+    font-family: 'Alegreya', serif;
+    font-weight: bold;
+}
+
+.navbar-custom .navbar-brand:hover {
+    color: #AFB1B6;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #7A7D85;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color: #AFB1B6;
+}
+
+.navbar-default .navbar-nav>li> .navbar-highlight {
+    color: #FF4E00;
+}
+
+.navbar-default .navbar-nav>li> .navbar-highlight:hover {
+    color: #FF9466;
+}
+
+.glyphicon-user:before {
+    content: "\e008";
+    color: #7A7D85;
+}
+
+/* - hamburger */
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle{
+	border-color: #FF4E00  ;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #FF4E00  ;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: rgba(255, 78, 0, 0.35);
+}
+
+
+/*------------------------------------------*/
+/* Footer*/
+
+.footer{
+    width: 100%;
+	background-color: #AFB1B6;
+	font-size: 1em;
+	text-align: center;
+	padding: 14px;
+	position: absolute;
+  	bottom: 0;
+  	width: 100%;
+  	height: 50px;
+}
+
+
+/*------------------------------------------*/
+/* Homepage*/
+
+.homepage{
+	text-align: center;
+	color: #CACBCE ;
+	background-color: #07101C;
+	margin-bottom: 100px;
+	padding: 0 25px;
+}
+
+.homepage h1{
+	color: #CACBCE ;
+	font-size: 6em;
+}
+
+.homepage h2{
+	font-size: 2em;
+	margin: 0 0 50px 0;
+}
+
+.homepage p{
+	color: #CACBCE;
+	font-size: 1.3em;
+}
+
+.homepage .btn{
+	margin-bottom: 35px;
+}
+
+.homepage #enterSite{
+	display: block;
+	font-size: 1.3em;
+	color: #FA966B;
+}
+
+
+/*------------------------------------------*/
+/* Haunted Place Index Page */
 
 .hauntedPlaceEntry{
+	background-color: white;
+	width: 100%;
 	display: block;
     margin: 0 auto;
-	margin-bottom: 25px;
-	width: 375px;
+    /*border-top: 5px solid #07101C;*/
+    margin-bottom: 25px;
+    box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
 }
 
-.title{
-	background-color: #2D2D2D;
-	color: white;
+.galleryTitle{
+	font-family: 'Alegreya', serif;
+	font-weight: bold;
+	color: #07101C ;
 	text-align: center;
-	padding: 10px;
 	font-size: 1.5em;
 }
 
 .galleryPic{
-	background-color: #DEDED2; 
-	height: 225px;
+	background-color: white; 
+	height: 255px;
 }
 
 .galleryPic img{
     display: block;
     margin: 0 auto;
-    max-height: 100%;
-    max-width: 100%;
+    max-height: 80%;
+    max-width: 80%;
+    position: relative;
+  	top: 50%;
+  	-webkit-transform: translateY(-50%);
+  	-ms-transform: translateY(-50%);
+  	transform: translateY(-50%);
 }
 
-.description{
-	background-color: gray;
-	padding: 10px;
+.indexSubmittedBy{
+	color: #07101C ;
+	font-weight: bold;
+	margin: 10px 0;
+}
+.galleryDescription{
+	padding: 0 10px;
 }
 
-.descriptionText{
+.galleryDescriptionText{
 	overflow: hidden;
-	height: 60px;
+	min-height: 44px;*/
+	width: 100%;
+}
+
+.btnAddHaunt{
+	margin: 0 auto 25px auto;
+	display: block;
+	width: 66.666%;
+}
+
+
+/*------------------------------------------*/
+/* Show Page*/
+
+.showPage{
+	max-width: 768px;
+	background-color: white;
+}
+
+.showPage img{
+	display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 550px;
+    margin-bottom: 10px;
+}
+
+#showPageDescription{
+	word-wrap: break-word;
+	font-size: 1.3em;
+}
+
+#showSubmittedBy{
+	padding: 15px;
+	margin: 10px 0;
+	background-color: #07101C;
+	color: white;
+}
+
+a.btn.btn-warning{
+	display: inline-block;
+}
+
+.inlineBlock{
+	display: inline-block;
+}
+
+#leaveCommentMessage{
+	background-color: #CACBCE;
+	padding: 25px 15px;
+	margin-top: 30px;
+	font-size: 1.2em;
+}
+
+#leaveCommentMessage h2{
+	font-family: 'Alegreya', serif;
+	margin-top: 0;
+	color: #FF4E00;
+	font-size: 2.5em;
+	font-weight: normal;
+
+}
+
+#leaveCommentMessage a{
+	color: #FF4E00;
+}
+
+.comment{
+	border-bottom: 2px solid #CACBCE;
+	padding: 15px 0;
+	word-wrap: break-word;
+	font-size: 1.3em;
+}
+
+.commentAuthor{
+	color: #102440;
+	font-weight: bold;
+}
+
+/* - used for some buttons on show page*/
+.btn-margin{
+	margin: 7px 0;
+}
+/* - used for "Back to Haunted Places" button on show page*/
+#backTo{
+	margin-bottom: 7px;
+}
+
+#showPageBottomButtons{
+	margin: 10px 0;
+}
+
+
+/*------------------------------------------*/
+/* Forms */
+
+label{
+	font-size: 1.2em;
 }
 
 textarea { 
@@ -44,6 +296,171 @@ textarea {
 }
 
 .form{
-	width:33%;
+	max-width: 350px;
+	background-color: white;
+	padding-bottom: 20px;
+	margin-bottom: 70px;
 }
 
+.form-control {
+    color: #2A2E33 ;
+    background-color: #fff;
+    border: 1px solid #CACBCE;
+    font-size: 1.1em;
+}
+
+.form-control:focus {
+    border-color: #102440 ;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(16, 36, 64, 0.6);
+}
+
+.commentForm{
+	padding-top: 20px;
+	max-width: 500px;
+}
+
+.hauntedPlaceForm{
+	max-width: 500px;
+}
+
+.hauntedPlaceForm input[type=text]{
+	max-width: 350px;
+}
+
+.registerForm .thumbnail{
+	border: 1px solid #CACBCE;
+}
+
+.registerForm .thumbnail h4{
+	margin-left: 22px;
+}
+
+.signUpAlert{
+	color: red;
+	font-weight: bold;
+	font-size: 1.1em;
+}
+
+.my-error-class {
+    color:#FF0000;  /* red */
+    font-size: 1.1em;
+}
+
+#createAccount{
+	margin-top: 30px;
+	text-align: center;
+}
+
+#createAccount p{
+	margin-bottom: 5px;
+}
+
+/* - password strength info box in register form*/
+#passwordInfo{
+	display: none;
+	padding-bottom: 10px;
+}
+
+#passwordInfo ul{
+	margin: 0;
+    padding: 0;
+	list-style-type: none;
+}
+
+#passwordInfo .invalid {
+    padding-left:22px;
+    line-height:22px;
+    color: #FF3434;
+}
+#passwordInfo .valid {
+    padding-left:22px;
+    line-height:22px;
+    color: #008F00;
+}
+
+ul .glyphicon-ok{
+	display:none;
+	color: inherit;
+}
+
+ul .glyphicon-remove{
+	color: inherit;
+}
+
+
+/*------------------------------------------*/
+/* Custom Buttons */
+
+/* - orange button*/
+.btn-orange {
+    color: #fff;
+    background-color: #F76829;
+    border-color: #F75B18;
+}
+
+.btn-orange:hover {
+    color: #F7F7F7;
+    background-color: #F65713;
+    border-color: #F14E09;
+}
+
+.btn-orange:active {
+    color: #E3E3E3;
+    background-color: #D44508;
+    border-color: #C54007;
+}
+
+.btn-orange:focus, .btn-custom:active, .btn-custom.active, .btn-custom:focus:active {
+  background-image: none;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* - "show more info buttons on index page*/
+.btn-more-info{
+	border-radius: 0;
+	background: #07101C ;
+	color: #fff ;
+}
+
+.btn-more-info:hover {
+    color: #fff;
+    background-color: #112845;
+}
+
+.btn-more-info:active {
+    color: #fff;
+    background-color: #1C3F6E ;
+}
+
+.btn-more-info:focus, .btn-custom:active, .btn-custom.active, .btn-custom:focus:active {
+  background-image: none;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+
+/*------------------------------------------*/
+/* Media Queries */
+
+@media only screen and (max-width: 425px) {
+	.homepage{
+		font-size: .75em;
+	}
+
+	.footer{
+		font-size: .8em;
+	}
+
+	.hauntedPlaceForm input[type=text]{
+		max-width: 100%;
+	}
+
+	.btnAddHaunt{
+		width: 100%;
+	}
+}
