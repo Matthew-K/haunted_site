@@ -1,4 +1,6 @@
+/*------------------------------------------*/
 /* General */
+
 *{
 	line-height: 1.6;
 	color: #2A2E33;
@@ -29,7 +31,10 @@ h1{
 	color: #102440;
 }
 
+
+/*------------------------------------------*/
 /* Navbar */
+
 .navbar-custom{
 	background-color: #07101C;
 	color:red;
@@ -83,7 +88,10 @@ h1{
     background-color: rgba(255, 78, 0, 0.35);
 }
 
+
+/*------------------------------------------*/
 /* Footer*/
+
 .footer{
     width: 100%;
 	background-color: #AFB1B6;
@@ -97,7 +105,46 @@ h1{
 }
 
 
+/*------------------------------------------*/
+/* Homepage*/
+
+.homepage{
+	text-align: center;
+	color: #CACBCE ;
+	background-color: #07101C;
+	margin-bottom: 100px;
+	padding: 0 25px;
+}
+
+.homepage h1{
+	color: #CACBCE ;
+	font-size: 6em;
+}
+
+.homepage h2{
+	font-size: 2em;
+	margin: 0 0 50px 0;
+}
+
+.homepage p{
+	color: #CACBCE;
+	font-size: 1.3em;
+}
+
+.homepage .btn{
+	margin-bottom: 35px;
+}
+
+.homepage #enterSite{
+	display: block;
+	font-size: 1.3em;
+	color: #FA966B;
+}
+
+
+/*------------------------------------------*/
 /* Haunted Place Index Page */
+
 .hauntedPlaceEntry{
 	background-color: white;
 	width: 100%;
@@ -154,7 +201,10 @@ h1{
 	width: 66.666%;
 }
 
+
+/*------------------------------------------*/
 /* Show Page*/
+
 .showPage{
 	max-width: 768px;
 	background-color: white;
@@ -220,7 +270,7 @@ a.btn.btn-warning{
 	font-weight: bold;
 }
 
-/* - used for buttons on show page*/
+/* - used for some buttons on show page*/
 .btn-margin{
 	margin: 7px 0;
 }
@@ -234,7 +284,9 @@ a.btn.btn-warning{
 }
 
 
+/*------------------------------------------*/
 /* Forms */
+
 label{
 	font-size: 1.2em;
 }
@@ -338,6 +390,7 @@ ul .glyphicon-remove{
 }
 
 
+/*------------------------------------------*/
 /* Custom Buttons */
 
 /* - orange button*/
@@ -391,8 +444,18 @@ ul .glyphicon-remove{
 }
 
 
+/*------------------------------------------*/
 /* Media Queries */
+
 @media only screen and (max-width: 425px) {
+	.homepage{
+		font-size: .75em;
+	}
+
+	.footer{
+		font-size: .8em;
+	}
+
 	.hauntedPlaceForm input[type=text]{
 		max-width: 100%;
 	}
